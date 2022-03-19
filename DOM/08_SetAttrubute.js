@@ -39,19 +39,23 @@ const increment = () => {
     counter.innerText = count;
 
     const li = document.createElement('li');
-    li.setAttribute('data-counter', count) ;
-    const textNode = document.createTextNode('Sentence '+ count);
-    li.appendChild(textNode) ;
+    li.setAttribute('data-counter', count);
+    const textNode = document.createTextNode('Sentence ' + count);
+    li.appendChild(textNode);
     uList.appendChild(li);
 
 };
 
 const decrement = () => {
-    
+
     // Catch the li element 
-    const li = uList.querySelector('[data-counter="'+count+'"]');
-    li.remove() ;
-    
+    const li = uList.querySelector('[data-counter="' + count + '"]');
+    const num = parseInt(li.getAttribute('data-counter'), 10);
+    // here 10 is the base of number 
+    if (num % 2 == 0) {
+        li.remove();
+    }
+
     // We want to increase the counter by one unit. 
     count--;
     // Assign the new count to the counter element 
